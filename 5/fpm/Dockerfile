@@ -28,7 +28,6 @@ RUN { \
 		echo "xdebug.scream=off"; \
 	} > /usr/local/etc/php/conf.d/orocrm.ini
 
-WORKDIR /var/www/html
+WORKDIR /var/www
 EXPOSE  9000
 CMD     ["php-fpm"]
-

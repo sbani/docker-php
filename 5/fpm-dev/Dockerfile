@@ -7,7 +7,6 @@ ENV COMPOSER_HOME /root/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
 	&& php -d memory_limit=-1 /usr/local/bin/composer global require phpunit/phpunit 4.5.*
 
-WORKDIR /var/www/html
+WORKDIR /var/www
 EXPOSE  9000
 CMD     ["php-fpm"]
-

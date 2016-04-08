@@ -26,7 +26,6 @@ RUN { \
 		echo "date.timezone=Europe/Berlin"; \
 		echo "detect_unicode=off"; \
 		echo "xdebug.scream=off"; \
-	} > /usr/local/etc/php/conf.d/orocrm.ini
+	} > /usr/local/etc/php/conf.d/custom.ini
 
 CMD ["php", "-a"]
-
