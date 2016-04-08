@@ -28,7 +28,7 @@ RUN { \
 		echo "xdebug.scream=off"; \
 	} > /usr/local/etc/php/conf.d/custom.ini
 
-COPY ../docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["php", "-a"]

@@ -1,5 +1,10 @@
 #!/bin/bash
-set -eo pipefail
+set -e
+
+# Add php-fpm as command if needed
+if [[ "$1" == -* ]]; then
+	set -- php-fpm "$@"
+fi
 
 echo 'PHP init process starting ...'
 
