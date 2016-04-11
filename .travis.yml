@@ -18,6 +18,7 @@ before_script:
 script:
   - docker build -t "$image" "${VARIANT}"
   - ~/official-images/test/run.sh "$image"
+  - if [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image git --version ; fi
 
 after_script:
   - docker images
