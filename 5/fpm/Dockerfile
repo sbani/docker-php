@@ -1,24 +1,26 @@
-FROM php:5.6-fpm
+FROM php:5-fpm-alpine
 
 # Install dependencies
-RUN apt-get update && apt-get install -y \
-		nodejs \
-		libicu-dev \
+RUN apk add --no-cache --virtual .runtime-deps \
+	nodejs
+
+# Install extensions
+RUN set -xe \
+	&& apk add --no-cache --virtual .extension-deps \
+		icu-libs \
 		libmcrypt-dev \
 		libpng-dev \
 		libxml2-dev \
-	--no-install-recommends && rm -r /var/lib/apt/lists/*
-
-# Install extensions
-RUN docker-php-ext-install \
-	gd \
-	intl \
-	mbstring \
-	mcrypt \
-	opcache \
-	pdo_mysql \
-	soap \
-	zip
+	\
+	&& docker-php-ext-install \
+		gd \
+		intl \
+		mbstring \
+		mcrypt \
+		opcache \
+		pdo_mysql \
+		soap \
+		zip
 
 # Oro php settings
 RUN { \
