@@ -1,7 +1,7 @@
 # docker-php: PHP Images
 Generic images for PHP. The extensions satisfy [Bolt](https://github.com/bolt/bolt) and [OroCRM](https://github.com/orocrm/platform), but also most of the other php projects
 
-[![](https://img.shields.io/badge/ImageLayers.io-compare%20all-blue.svg)](https://imagelayers.io/?images=banovo%2Fphp:5,banovo%2Fphp:7,banovo%2Fphp:5-fpm,banovo%2Fphp:7-fpm,banovo%2Fphp:5-dev,banovo%2Fphp:7-dev,banovo%2Fphp:5-fpm-dev,banovo%2Fphp:7-fpm-dev)
+[![Build Status](https://travis-ci.org/banovo/docker-php.svg?branch=master)](https://travis-ci.org/banovo/docker-php) [![](https://img.shields.io/badge/ImageLayers.io-compare%20all-blue.svg)](https://imagelayers.io/?images=banovo%2Fphp:5,banovo%2Fphp:7,banovo%2Fphp:5-fpm,banovo%2Fphp:7-fpm,banovo%2Fphp:5-dev,banovo%2Fphp:7-dev,banovo%2Fphp:5-fpm-dev,banovo%2Fphp:7-fpm-dev)
 
 ## Production Images
 These Images are meant for production environments and include all needed extensions.
