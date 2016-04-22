@@ -32,5 +32,6 @@ COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 WORKDIR /var/www
+VOLUME /var/www
 EXPOSE 9000
 CMD ["php-fpm"]
