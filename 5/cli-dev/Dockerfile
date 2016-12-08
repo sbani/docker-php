@@ -9,6 +9,9 @@ RUN set -xe \
 	&& apt-get update && apt-get install -y git --no-install-recommends && rm -r /var/lib/apt/lists/* \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install prestissimo for faster composer installations
+RUN composer global require "hirak/prestissimo:^0.3"
+
 # Install phpunit
 RUN composer global require phpunit/phpunit 4.5.*
 
