@@ -21,10 +21,6 @@ RUN set -xe \
 	&& composer global require escapestudios/symfony2-coding-standard \
 	&& phpcs --config-set installed_paths ~/composer/vendor/escapestudios/symfony2-coding-standard
 
-# Install xmpp cli client
-RUN set -xe \
-	&& apt-get update && apt-get install -y sendxmpp --no-install-recommends && rm -r /var/lib/apt/lists/*
-
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
