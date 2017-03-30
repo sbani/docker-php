@@ -13,7 +13,7 @@ RUN set -xe \
 RUN composer global require "hirak/prestissimo:^0.3"
 
 # Install phpunit
-RUN composer global require phpunit/phpunit 4.5.*
+RUN composer global require phpunit/phpunit 5.3.*
 
 # Install phpcs
 RUN set -xe \
