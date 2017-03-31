@@ -1,12 +1,15 @@
-FROM php:7-cli
+FROM php:7.1-cli
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
 		nodejs \
 		libicu-dev \
+		zlib1g-dev \
 		libmcrypt-dev \
 		libpng-dev \
 		libxml2-dev \
+		libicu52 \
+		zlib1g \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Install extensions
@@ -19,6 +22,13 @@ RUN docker-php-ext-install \
 	pdo_mysql \
 	soap \
 	zip
+
+RUN pecl install \
+		apcu-5.1.7 \
+	&& docker-php-ext-enable --ini-name 05-opcache.ini \
+		opcache \
+	&& docker-php-ext-enable --ini-name 20-apcu.ini \
+		apcu
 
 # Oro php settings
 RUN { \
