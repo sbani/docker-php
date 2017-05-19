@@ -15,12 +15,6 @@ RUN composer global require "hirak/prestissimo:^0.3"
 # Install phpunit
 RUN composer global require phpunit/phpunit 5.3.*
 
-# Install phpcs
-RUN set -xe \
-	&& composer global require squizlabs/php_codesniffer \
-	&& composer global require escapestudios/symfony2-coding-standard \
-	&& phpcs --config-set installed_paths ~/composer/vendor/escapestudios/symfony2-coding-standard
-
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 

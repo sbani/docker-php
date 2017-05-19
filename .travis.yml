@@ -24,7 +24,6 @@ script:
   - ~/official-images/test/run.sh "$image"
   - if [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image git --version ; fi
   - if [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image phpunit --version ; fi
-  - if [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image phpcs --version ; fi
 
 after_script:
   - docker images
