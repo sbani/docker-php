@@ -1,8 +1,20 @@
 FROM php:7.1-cli
 
+ENV NODEREPO node_4.x
+
 # Install dependencies
-RUN apt-get update && apt-get install -y \
-		nodejs \
+# apt-get update is called during the nodejs install script
+# See https://deb.nodesource.com/setup
+RUN set -xe \
+	\
+	# Add nodejs repo (jessie is coming from php) and deps to it
+	&& apt-get update && apt-get install -y apt-transport-https --no-install-recommends \
+	&& php -r "echo file_get_contents('https://deb.nodesource.com/gpgkey/nodesource.gpg.key');" | apt-key add - \
+	&& echo "deb https://deb.nodesource.com/${NODEREPO} jessie main" > /etc/apt/sources.list.d/nodesource.list \
+	&& echo "deb-src https://deb.nodesource.com/${NODEREPO} jessie main" >> /etc/apt/sources.list.d/nodesource.list \
+	\
+	# Install deps
+	&& apt-get update && apt-get install -y \
 		libicu-dev \
 		zlib1g-dev \
 		libmcrypt-dev \
@@ -10,7 +22,8 @@ RUN apt-get update && apt-get install -y \
 		libxml2-dev \
 		libicu52 \
 		zlib1g \
-	--no-install-recommends && rm -r /var/lib/apt/lists/*
+		nodejs \
+	--no-install-recommends && apt-get remove --purge -y apt-transport-https && rm -r /var/lib/apt/lists/*
 
 # Install extensions
 RUN docker-php-ext-install \

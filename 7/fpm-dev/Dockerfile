@@ -1,5 +1,7 @@
 FROM banovo/php:7-fpm
 
+ENV NODEREPO node_4.x
+
 # Set environmental variables
 ENV COMPOSER_HOME /root/composer
 ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
