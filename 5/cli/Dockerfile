@@ -23,7 +23,7 @@ RUN set -xe \
 		libicu52 \
 		zlib1g \
 		nodejs \
-	--no-install-recommends && apt-get remove --purge -y apt-transport-https && rm -r /var/lib/apt/lists/*
+	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Install extensions
 RUN docker-php-ext-install \

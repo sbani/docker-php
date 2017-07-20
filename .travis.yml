@@ -22,8 +22,8 @@ before_script:
 script:
   - docker build -t "$image" "${VARIANT}"
   - ~/official-images/test/run.sh "$image"
-  - docker run -it --rm $image node --version
-  - docker run -it --rm $image npm --version
+  - if ! [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image node --version ; fi
+  - if ! [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image npm --version ; fi
   - if [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image git --version ; fi
   - if [[ $VARIANT =~ ^....dev ]] ; then docker run -it --rm $image phpunit --version ; fi
 
