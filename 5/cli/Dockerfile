@@ -1,6 +1,6 @@
 FROM php:5.6-cli
 
-ENV NODEREPO node_4.x
+ENV NODEREPO node_8.x
 
 # Install dependencies
 # apt-get update is called during the nodejs install script
