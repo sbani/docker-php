@@ -4,9 +4,9 @@ FROM banovo/php:5
 ENV COMPOSER_HOME /root/composer
 ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
 
-# Install composer
+# Install composer and phantomjs dependencies
 RUN set -xe \
-	&& apt-get update && apt-get install -y git --no-install-recommends && rm -r /var/lib/apt/lists/* \
+	&& apt-get update && apt-get install -y git libfontconfig1 --no-install-recommends && rm -r /var/lib/apt/lists/* \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install prestissimo for faster composer installations
