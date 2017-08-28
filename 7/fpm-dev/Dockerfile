@@ -1,4 +1,4 @@
-FROM banovo/php:7-fpm
+FROM banovo/php:7
 
 ENV NODEREPO node_4.x
 

@@ -1,4 +1,4 @@
-FROM banovo/php:5-fpm
+FROM banovo/php:5
 
 # Set environmental variables
 ENV COMPOSER_HOME /root/composer
