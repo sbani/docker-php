@@ -2,12 +2,8 @@ language: bash
 services: docker
 
 env:
-  - VERSION=5 VARIANT=cli
-  - VERSION=5 VARIANT=cli-dev
   - VERSION=5 VARIANT=fpm
   - VERSION=5 VARIANT=fpm-dev
-  - VERSION=7 VARIANT=cli
-  - VERSION=7 VARIANT=cli-dev
   - VERSION=7 VARIANT=fpm
   - VERSION=7 VARIANT=fpm-dev
 
