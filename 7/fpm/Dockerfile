@@ -23,6 +23,7 @@ RUN set -xe \
 		libicu52 \
 		zlib1g \
 		nodejs \
+		sudo \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Install extensions
