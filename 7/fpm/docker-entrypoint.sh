@@ -6,6 +6,11 @@ if [[ "$1" == -* ]]; then
 	set -- php-fpm "$@"
 fi
 
+# change www-data user UID/GID to match local users values at runtime
+if [ ! -z "$LOCAL_UID" ] && [ "$LOCAL_UID" != '33' ]; then
+    usermod -u ${LOCAL_UID} www-data
+fi
+
 logger "Fixing rights in container"
 mkdir -p /var/www
 chown -R www-data:www-data /var/www /usr/local/bin

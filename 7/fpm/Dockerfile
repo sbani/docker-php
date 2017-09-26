@@ -1,5 +1,7 @@
 FROM php:7.1-fpm
 
+ENV LOCAL_UID 33
+
 ENV NODEREPO node_8.x
 
 # Install dependencies
