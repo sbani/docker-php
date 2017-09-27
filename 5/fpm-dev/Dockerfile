@@ -3,6 +3,7 @@ FROM banovo/php:5
 # Set environmental variables
 ENV COMPOSER_HOME /root/composer
 ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
+ENV LOCAL_UID 33
 
 # Install composer
 RUN set -xe \

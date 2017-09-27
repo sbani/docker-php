@@ -5,6 +5,7 @@ ENV NODEREPO node_4.x
 # Set environmental variables
 ENV COMPOSER_HOME /root/composer
 ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
+ENV LOCAL_UID 33
 
 # Install composer
 RUN set -xe \
