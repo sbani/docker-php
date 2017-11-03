@@ -20,6 +20,9 @@ RUN set -xe \
 		libicu-dev \
 		zlib1g-dev \
 		libmcrypt-dev \
+		libfreetype6-dev \
+		libjpeg62-turbo-dev \
+		libmcrypt-dev \
 		libpng-dev \
 		libxml2-dev \
 		libicu52 \
@@ -29,17 +32,26 @@ RUN set -xe \
 	--no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # Install extensions
-RUN docker-php-ext-install \
-	gd \
-	intl \
-	mbstring \
-	mcrypt \
-	opcache \
-	pdo_mysql \
-	soap \
-	exif \
-	fileinfo \
-	zip
+RUN set -xe \
+	&& docker-php-ext-configure \
+		gd \
+		    --with-gd \
+			--with-freetype-dir=/usr/include/ \
+			--with-png-dir=/usr/include/ \
+			--with-jpeg-dir=/usr/include/ \
+		\
+	\
+	&& docker-php-ext-install -j$(nproc) \
+		gd \
+		intl \
+		mbstring \
+		mcrypt \
+		opcache \
+		pdo_mysql \
+		soap \
+		exif \
+		fileinfo \
+		zip
 
 # Oro php settings
 RUN { \
